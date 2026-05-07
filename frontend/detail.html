@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行程详情</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="drawer-backdrop" class="backdrop"></div>
+    <aside id="memory-drawer" class="drawer">
+        <div class="drawer-header">
+            <h3>当前记忆与版本</h3>
+            <button id="close-memory" class="button secondary">关闭</button>
+        </div>
+        <div class="drawer-body">
+            <div id="memory-error" hidden></div>
+            <div class="card">
+                <h3>记忆摘要</h3>
+                <pre id="memory-text" class="memory-pre"></pre>
+            </div>
+            <div class="card">
+                <h3>版本历史</h3>
+                <div id="version-history" class="list"></div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="page-shell">
+        <div class="top-nav">
+            <button id="back-home" class="button secondary">返回首页</button>
+            <button id="back-history" class="button secondary">返回历史项目</button>
+        </div>
+
+        <section class="hero-bar detail-hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Trip Detail</span>
+                <h1 id="detail-title">行程详情</h1>
+                <p id="detail-subtitle" class="path-text"></p>
+            </div>
+            <div class="hero-actions toolbar-actions">
+                <button id="open-memory" class="button ghost">查看当前记忆</button>
+                <button id="restore-button" class="button warn">恢复上一版</button>
+                <button id="export-markdown" class="button secondary">导出 Markdown</button>
+                <button id="export-html" class="button secondary">导出 HTML</button>
+                <button id="export-pdf" class="button secondary">导出 PDF</button>
+            </div>
+        </section>
+
+        <div id="page-status" class="notice" hidden></div>
+
+        <div class="grid two">
+            <section class="card">
+                <h2>基础信息</h2>
+                <div id="basic-info"></div>
+            </section>
+            <section class="card">
+                <h2>天气与预算</h2>
+                <div id="weather-budget"></div>
+            </section>
+        </div>
+
+        <div class="grid two stacked-section">
+            <section class="card">
+                <h2>城际交通建议</h2>
+                <div id="transport-info"></div>
+            </section>
+            <section class="card">
+                <h2>修改行程</h2>
+                <form id="edit-form" class="field">
+                    <label for="edit-request">修改要求</label>
+                    <textarea id="edit-request" placeholder="例如：我不想去外滩，换成武康路和苏州河沿线。"></textarea>
+                    <div class="action-row">
+                        <button id="edit-submit" class="button" type="submit">提交修改</button>
+                    </div>
+                </form>
+                <div id="action-status" class="notice" hidden></div>
+                <div id="latest-export-feedback" class="stacked-section"></div>
+            </section>
+        </div>
+
+        <section class="card stacked-section">
+            <div class="section-head">
+                <div>
+                    <h2>每日行程</h2>
+                    <div class="muted">按天查看上午、下午、晚上安排，图片会跟随对应地点展示。</div>
+                </div>
+            </div>
+            <div id="plan-list" class="grid"></div>
+        </section>
+
+        <div class="grid two stacked-section">
+            <section class="card">
+                <h2>酒店选址建议</h2>
+                <div id="hotel-info"></div>
+            </section>
+            <section class="card">
+                <h2>开放时间风险</h2>
+                <div id="opening-hours"></div>
+            </section>
+        </div>
+
+        <div class="grid two stacked-section">
+            <section class="card">
+                <h2>城市活动提醒</h2>
+                <div id="events-info"></div>
+            </section>
+            <section class="card">
+                <h2>导出记录</h2>
+                <div class="path-text" id="current-filepath"></div>
+                <div id="export-history" class="export-history"></div>
+            </section>
+        </div>
+
+        <div class="grid two stacked-section">
+            <section class="card">
+                <h2>效果反馈</h2>
+                <div id="adoption-status" class="notice" hidden></div>
+                <div class="feedback-actions">
+                    <button id="adopt-button" class="button">采纳此行程</button>
+                </div>
+                <form id="feedback-form" class="field feedback-form">
+                    <label for="feedback-score">满意度评分</label>
+                    <select id="feedback-score">
+                        <option value="">请选择</option>
+                        <option value="5">5 分</option>
+                        <option value="4">4 分</option>
+                        <option value="3">3 分</option>
+                        <option value="2">2 分</option>
+                        <option value="1">1 分</option>
+                    </select>
+                    <label for="feedback-text">文字反馈</label>
+                    <textarea id="feedback-text" placeholder="例如：整体不错，但第二天有点赶。"></textarea>
+                    <div class="action-row">
+                        <button id="feedback-submit" class="button secondary" type="submit">提交反馈</button>
+                    </div>
+                </form>
+                <div id="feedback-status" class="notice" hidden></div>
+            </section>
+            <section class="card">
+                <h2>Agent 效果指标</h2>
+                <div id="evaluation-metrics"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/detail.js"></script>
+</body>
+</html>
