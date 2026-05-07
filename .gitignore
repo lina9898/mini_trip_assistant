@@ -1,0 +1,28 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local generated data
+exports/
+saved_trips/
+docs/*.mp4
+docs/*.mov
+docs/*.avi
+docs/*.mkv
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
